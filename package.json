@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "atem-connection": "^3.9.0",
+    "docker": "^0.2.14",
     "express": "^4.22.2"
   },
   "repository": {
@@ -23,7 +24,9 @@
   },
   "homepage": "https://github.com/TeelichtFoxy/cgn-atem-rest-api#readme",
   "allowScripts": {
-    "@julusian/freetype2@1.3.1": true
-  },
-  "devDependencies": {}
+    "@julusian/freetype2@1.3.1": true,
+    "highlight.js@9.18.5": true,
+    "ejs@2.7.4": true,
+    "typechecker@2.0.8": true
+  }
 }
