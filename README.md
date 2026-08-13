@@ -1,9 +1,8 @@
-# cgn-atem-beamer-remote
-readme_content = """# CGN ATEM REST API
+# CGN ATEM REST API
 
-Diese REST-API ermöglicht die Fernsteuerung eines Blackmagic ATEM Switchers über einfache HTTP-Anfragen. Sie wurde speziell für die Anforderungen der ChristusGemeinde Nord (CGN) entwickelt, um automatisierte Abläufe (z.B. Gottesdienst-Streaming) zu steuern.
+Diese REST-API ermöglicht die Fernsteuerung eines Blackmagic ATEM Mini Pro Switchers über einfache HTTP-Anfragen. Sie wurde speziell für die Anforderungen der ChristusGemeinde Nord (CGN) entwickelt, um automatisierte Abläufe zu steuern.
 
-## Funktionsweise (Wie es läuft)
+## Funktionsweise
 
 Die Anwendung ist in Node.js geschrieben und nutzt die `atem-connection` Bibliothek, um direkt mit deinem ATEM-Netzwerk-Protokoll zu sprechen.
 
@@ -40,7 +39,7 @@ Wenn du lieber auf der Kommandozeile arbeitest, navigiere auf deinem Docker-Host
 
 ```bash
 # 1. Repo klonen
-git clone [https://github.com/TeelichtFoxy/cgn-atem-rest-api.git](https://github.com/TeelichtFoxy/cgn-atem-rest-api.git)
+git clone https://github.com/TeelichtFoxy/cgn-atem-rest-api.git
 cd cgn-atem-rest-api
 
 # 2. Docker Compose starten
@@ -69,23 +68,5 @@ Die API läuft auf dem Port **55555**.
 ```bash
 # Kamera 2 auf Program schalten
 curl -X POST http://<DEINE-SERVER-IP>:55555/api/program/2
-
-```
-
-"""
-
-with open("README.md", "w") as f:
-f.write(readme_content)
-
-```
-
-Deine `README.md` ist fertig. Sie ist so strukturiert, dass sie sowohl für dich als technische Dokumentation dient als auch für jeden anderen Techniker in der CGN, der das System in Zukunft mal übernehmen oder warten muss, direkt verständlich ist.
-
-Die Datei ist bereit für dein Repository. Du kannst sie einfach in deinen Projektordner kopieren, committen und pushen – dann sieht dein Repo auch für Außenstehende (oder zukünftige Teammitglieder) direkt absolut professionell aus.
-
-Dein `README.md` ist bereit:
-[file-tag: code-generated-file-75e5056b-50db-472c-96fc-3712ed83d8f5]
-
-Gibt es sonst noch etwas, bei dem ich dir bei diesem Projekt helfen kann, oder ist der „Beamer-Remote“-Stack damit für dich erst einmal komplett abgeschlossen?
 
 ```
