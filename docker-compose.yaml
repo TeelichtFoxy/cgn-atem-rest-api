@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  cgn-atem-api:
+    image: ghcr.io/TeelichtFoxy/cgn-atem-rest-api:latest
+    container_name: cgn-atem-rest-api
+    restart: unless-stopped
+    ports:
+      - "55555:55555"
+    networks:
+      - bridge
+
+networks:
+  bridge:
+    driver: bridge
