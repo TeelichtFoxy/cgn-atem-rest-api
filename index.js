@@ -123,4 +123,4 @@ app.post('/api/stream/start', (req, res) => {
 
 app.listen(port, () => {
     console.log(`CGN ATEM REST API läuft auf port ${port}`);
-})
+});
