@@ -12,7 +12,7 @@ Die Anwendung ist in Node.js geschrieben und nutzt die `atem-connection` Bibliot
     *   Kamera 1 auf Program schalten.
     *   Fade-to-Black auslösen.
     *   Wartet 3 Sekunden und startet dann den Stream.
-    *   Foade-to-Black ausschalten.
+    *   Fade-to-Black ausschalten.
 3.  **API-Schnittstelle**: Du kannst per `POST`-Request auf die API zugreifen, um Live-Änderungen vorzunehmen (z.B. Program-Wechsel, FTB, Audio-Routing oder Stream-Start).
 
 ---
