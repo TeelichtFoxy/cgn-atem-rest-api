@@ -25,10 +25,26 @@ Du benötigst einen Docker-Host (z.B. Mini-PC oder Server) mit installiertem Doc
 
 1.  Logge dich in **Portainer** ein.
 2.  Gehe zu **Stacks** > **+ Add stack**.
-3.  Gib dem Stack einen Namen (z.B. `cgn-atem-api`).
-4.  Wähle bei "Build method" den Reiter **Repository**.
-5.  **Repository URL**: `https://github.com/TeelichtFoxy/cgn-atem-rest-api.git`
-6.  **Compose path**: `docker-compose.yaml`
+3.  Gib dem Stack einen Namen (z.B. `cgn-atem-rest-api`).
+4.  **Repository URL**: `https://github.com/TeelichtFoxy/cgn-atem-rest-api.git`
+5.  Gib folgende Konfiguration ein:
+```bash
+version: '3.8'
+
+services:
+  cgn-atem-rest-api:
+    image: ghcr.io/teelichtfoxy/cgn-atem-rest-api:main
+    container_name: cgn-atem-rest-api
+    restart: unless-stopped
+    ports:
+      - "55555:55555"
+    networks:
+      - bridge
+
+networks:
+  bridge:
+    driver: bridge
+```
 7.  Klicke auf **Deploy the stack**.
 
 Portainer lädt nun automatisch das fertige Docker-Image aus der GitHub Registry, installiert alle benötigten Node-Abhängigkeiten und startet den Container.
@@ -38,11 +54,13 @@ Portainer lädt nun automatisch das fertige Docker-Image aus der GitHub Registry
 Wenn du lieber auf der Kommandozeile arbeitest, navigiere auf deinem Docker-Host in einen Ordner deiner Wahl und führe aus:
 
 ```bash
-# 1. Repo klonen
-git clone https://github.com/TeelichtFoxy/cgn-atem-rest-api.git
-cd cgn-atem-rest-api
+# 1. Ordner erstellen und wechseln:
+mkdir cgn-atem-rest-api && cd cgn-atem-rest-api
 
-# 2. Docker Compose starten
+# 2. Aktuelle docker-compose.yaml in den Ordner laden
+curl -O https://raw.githubusercontent.com/TeelichtFoxy/cgn-atem-rest-api/main/docker-compose.yaml
+
+# 3. Docker Compose starten
 docker-compose up -d
 
 ```
@@ -68,5 +86,4 @@ Die API läuft auf dem Port **55555**.
 ```bash
 # Kamera 2 auf Program schalten
 curl -X POST http://<DEINE-SERVER-IP>:55555/api/program/2
-
 ```
